@@ -4,13 +4,14 @@
         <title>E-Commerce | Store</title>
         <meta name="description" content="This is the description">
         <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</body>
+</html>
+
     </head>
     <body>
 
     <?php 
-    include './classes/Cart.php';
-    include './classes/Product.php';
-    include './classes/Item.php';
     include './classes/db.php';
 
     session_start();
@@ -131,11 +132,6 @@
         </section>
         <section class="container content-section">
             <h2 class="section-header">CART</h2>
-            <div class="cart-row">
-                <span class="cart-item cart-header cart-column">ITEM</span>
-                <span class="cart-price cart-header cart-column">PRICE</span>
-                <span class="cart-quantity cart-header cart-column">QUANTITY</span>
-            </div>
 
             <div class = "cart-items">
             <?php
@@ -151,20 +147,19 @@ $total = 0;
                     $productid  = $row['id'];
                     $productname = $row['title'];
                     $productprice = $row['price'];
+                    $productimg = $row['image'];
     
     
     echo   "
-    <form action=\"store.php?action=remove&id=$productid\" method=\"post\" class=\"cart-items\">
+    <form action=\"cart.php?action=remove&id=$productid\" method=\"post\" class=\"cart-items\">
                     <div class=\"border rounded\">
                         <div class=\"row bg-white\">
                             <div class=\"col-md-3 pl-0\">
-                                <img src='' alt=\"Image1\" class=\"img-fluid\">
+                                <img src=$productimg alt=\"Image1\" class=\"img-fluid\">
                             </div>
                             <div class=\"col-md-6\">
                                 <h5 class=\"pt-2\">$productname</h5>
-                                <small class=\"text-secondary\">Seller: dailytuition</small>
                                 <h5 class=\"pt-2\">$$productprice</h5>
-                                <button type=\"submit\" class=\"btn btn-warning\">Save for Later</button>
                                 <button type=\"submit\" class=\"btn btn-danger mx-2\" name=\"remove\">Remove</button>
                             </div>
                             <div class=\"col-md-3 py-5\">
@@ -220,3 +215,5 @@ $total = 0;
         </footer>
     </body>
 </html>
+
+
