@@ -151,7 +151,7 @@ $total = 0;
     
     
     echo   "
-    <form action=\"cart.php?action=remove&id=$productid\" method=\"post\" class=\"cart-items\">
+    <form action=\"store.php?action=remove&id=$productid\" method=\"post\" class=\"cart-items\">
                     <div class=\"border rounded\">
                         <div class=\"row bg-white\">
                             <div class=\"col-md-3 pl-0\">
